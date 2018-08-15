@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  # modify replicas according to your case
+  replicas: 2
+  selector:
+    matchLabels:
+      PROJ: student
+  template:
+    metadata:
+      labels:
+        PROJ: student
+    spec:
+      containers:
+        - name: webservice
+          image: raghudevops29/httpd:v1 
+...
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: web-svc
+spec:
+  type: LoadBalancer
+  selector:
+    PROJ: student
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+... 

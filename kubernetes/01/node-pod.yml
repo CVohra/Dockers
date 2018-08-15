@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myhttpd
+spec:
+  containers:
+    - name: webservice
+      image: raghudevops29/httpd:v1
+      ports:
+        - containerPort: 80   
+  nodeSelector:
+    PROJ: mariadb       

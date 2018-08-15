@@ -1,0 +1,3 @@
+FROM tomcat:9
+COPY student.war /usr/local/tomcat/webapps/student.war
+

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: httpd
+  labels:
+    PROJ: student
+spec:
+  selector:
+    matchLabels:
+      PROJ: student
+  template:
+    metadata:
+      labels:
+        PROJ: student
+    spec:
+      containers:
+      - name: webservice
+        image: raghudevops29/httpd:v1
+      nodeSelector:
+        PROJ: student
+      
+
+      

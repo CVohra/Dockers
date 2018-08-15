@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: web
+spec:
+  # modify replicas according to your case
+  replicas: 100
+  selector:
+    matchLabels:
+      PROJ: student
+  template:
+    metadata:
+      labels:
+        PROJ: student
+    spec:
+      containers:
+        - name: webservice
+          image: raghudevops29/httpd:v1 
